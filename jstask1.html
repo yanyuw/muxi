@@ -1,0 +1,32 @@
+<html>
+<body>
+<script type="text/javascript">
+var num = [2,3,4,5,6,7];
+var squareNum = new Array();
+var oddNum = new Array;
+var x;
+var product = 1;
+
+num.pop();
+num.unshift(1);
+
+for (x in num)
+{
+    squareNum[x]=num[x]*num[x];
+}
+
+for (x in squareNum)
+{
+    if(squareNum[x]%2==1)
+        oddNum[oddNum.length]=squareNum[x];
+}
+
+for (x in oddNum)
+{
+    product *= oddNum[x];
+}
+
+document.write(product);
+</script>
+</body>
+</html>
