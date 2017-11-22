@@ -1,0 +1,23 @@
+<html>
+<body>
+<script type="text/javascript">
+function Person(name, age)
+{
+    this.name = name;
+    this.age = age;
+    this.introduce=introduce;
+
+    function introduce()
+    {
+        document.write("I am " + this.name + ", I am " + this.age + " years old!");
+    }
+}
+
+    var jerry = new Person("Jerry", 2);
+    jerry.introduce();
+    var tom = new Person("Tom", 12);
+    tom.introduce();      
+
+</script>
+</body>
+</html>
