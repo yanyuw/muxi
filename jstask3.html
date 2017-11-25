@@ -1,0 +1,19 @@
+<html>
+    <body>
+    <script type="text/javascript">
+   function parseQuery(query) {
+    var x = query.split("&");
+    for(i=0;i<x.length;i++){
+        var y = new Array();
+        var z = new Array();
+        y[i] = x[i].split("=")[0];
+        z[i] = x[i].split("=")[1]; 
+    	document.write(y[i]+":"+ "\"" + z[i] + "\"" );
+    }
+    }
+    var jerry = parseQuery("name=jerry&age=1");
+    jerry;
+
+    </script>
+    </body>
+    </html>
