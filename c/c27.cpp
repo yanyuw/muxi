@@ -2,13 +2,14 @@
 #include<stdio.h>
 int main()
 {
-    double q,sum,aa,bb,cc;
+    double q,aa,bb,cc;
     char a[1000];
-    double b[1000],c[1000] = {0};
-    int n,m,i,j,k;
+    double b[1000],c[1000],dp[50];
+    int n,m,i,j,k,sum;
     while(scanf("%lf%d",&q,&n) != EOF)
     {
         sum = 0;
+        k = 0;
         for(i = 0; i < n; i++)
         {
             int flag = 1;
@@ -31,22 +32,25 @@ int main()
                 if((aa+bb+cc)<q)
                     c[k++] = aa + bb + cc ;
         }
-        for(i = 0; i < k-1; i++)
-            for(j = 0; j < k-1-i; j++)
-                if(c[j] < c[j+1])
-                {
-                    int tmp=c[j];
-                    c[j] = c[j+1];
-                    c[j+1] = tmp;
-                }
-        for(i = k; i >= 1; i--)
-        {
-            if(sum + c[i] > q) 
-                continue;
-            sum += c[i];
-        }
 
-        printf("%.2f\n",sum);
+        for(i = 0; i < k-1; i++)
+            for(j = k; j > 0; j--)
+            {
+                if(j==1 || dp[j-1] > 0 && dp[j-1]+c[i] <= q)
+                    {
+                        if(dp[j] > dp[j-1]+c[i])
+                            dp[j] = dp[j];
+                        else 
+                            dp[j] = dp[j-1] + c[i];
+                    }
+            }
+
+        for(i = 1; i <= k; i++)
+        {
+            if(dp[sum] < dp[i])
+                sum = i;
+        }
+        printf("%.2f\n",dp[sum]);
     }
 
     return 0;
