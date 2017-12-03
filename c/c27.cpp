@@ -1,4 +1,3 @@
-// 没通过
 #include<stdio.h>
 int main()
 {
