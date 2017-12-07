@@ -36,7 +36,9 @@ int main()
         }
 
     }
-    
-    printf("%d %s %s",sum,old,young);
+    if(sum>0)
+        printf("%d %s %s",sum,old,young);
+    else
+        printf("%d",sum);
     return 0;
 }
