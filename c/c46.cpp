@@ -11,13 +11,10 @@ int main()
         sum = 0;
         flag = 1;
         scanf("%s",num[i]);
-        // printf("%s ",num[i]);
         for(j = 0; num[i][j] != '\0'; j++)
         {
             sum += num[i][j] - '0';
         }
-        // printf("%d ",sum);
-        // printf("i=%d ",i);
         if(i == 0)
         {
             friends[0] = sum;
