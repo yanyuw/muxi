@@ -2,38 +2,36 @@
 #include<string.h>
 int main()
 {
-	char *number[11] = {"ling","yi","er","san","si","wu","liu","qi","ba","jiu"};
+	char number[11][5] = {"ling","yi","er","san","si","wu","liu","qi","ba","jiu"};
 	char a[100];
-	int sum,len,n,i;
+	int sum = 0,len,i;
+	int b[5];
 	
 	scanf("%s",a);
-	
 	len=strlen(a);
 	for (i = 0; i < len; i++)
 	{
-		sum += a[i];
+		sum += (a[i]-'0');
 	}
-	n = sum - len * 48;
 	
-	
- 	for(i=0;n>=10;i++)
+ 	for(i = 0; sum >= 10; i++)
 	{ 
-		int b[100];
-        b[i] = n % 10;  
-        n /= 10;  
-    }  
-    a[i++] = n;  
+        b[i] = sum % 10;
+        sum /= 10; 
+    } 
+	b[i] = sum;
   
-	while(i--)
-	{  
+	while(i >= 0)
+	{ 
     	if(i!=0)
 		{  
-    		printf("%s ",number[a[i]]);  
+    		printf("%s ",number[b[i]]);  
     	}
 		else
 		{  
-    		printf("%s\n",number[a[i]]);  
+    		printf("%s\n",number[b[i]]);  
     	}  
+		i--;
 	}  
 	return 0;
 }
