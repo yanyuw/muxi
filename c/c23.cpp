@@ -1,29 +1,24 @@
 #include<stdio.h>
+#include<string.h>
 int main()
 {
 	char number[1001];
-	char c;
 	int a[10] = {0};
-	int i = 0,n;
+	int lennum,i;
 	
-	while(scanf("%c",&c) != '\n');
+	scanf("%s",number);
+	lennum = strlen(number);
+	
+	for (i = 0; i < lennum; i++)
 	{
-		scanf("%c",&c);
-		number[i] = c;
-		i++;
+		a[number[i] - '0']++;	
 	}
 	
-	for (int j = 0; j < i-1; j++)
+	for (i = 0; i < 10; i++)
 	{
-		int tmp = number[j] - '0';
-		a[tmp]++;	
-	}
-	
-	for (int j =0; j < 10; j++)
-	{
-		if(a[j]==0) 
-			break;
-		else printf("%d:%d\n",a[j]);
+		if(a[i] == 0) 
+			continue;
+		else printf("%d:%d\n",i,a[i]);
 	}
 
 	return 0;
