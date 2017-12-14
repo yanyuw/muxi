@@ -3,8 +3,8 @@
 
 int main()
 {
-	char a[110],b[110],c[110];
-	int lena,lenb,temp,max,count = 1;
+	char a[1000],b[1000],c[1000],temp[1000] = "0";
+	int lena,lenb,max,count = 1;
 	
 	scanf("%s",a);
 	scanf("%s",b);
@@ -15,36 +15,29 @@ int main()
 	
 	if(lenb < lena)
 	{
-		int i = lena -1;
-		temp = lenb;
-		while(temp--)
+		for(int i = 0; i < (lena-lenb); i++)
 		{
-			b[i] = b[i - (lena - lenb)];
-			i--;
+			strcat (temp,b);
+			strcpy (b,temp);
+			strcpy (temp,"0");
+			
 		}
-		while(i-- > -1)
-		{
-			b[i+1] = '0';
-		}
-		
+		// printf("%s",b);
 	}
 	if(lenb > lena)
 	{
-		int i = lenb -1;
-		temp = lena;
-		while(temp--)
+		for(int i = 0; i < (lenb-lena); i++)
 		{
-			a[i] = a[i - (lenb -lena)];
-			i--;
+			strcat (temp,a);
+			strcpy (a,temp);
+			strcpy (temp,"0");
+			
 		}
-		while(i-- > -1)
-		{
-			a[i+1] = '0';
-		}
+		// printf("%s",a);
 		max = lenb;
 	}
 	
-	for (int i = max - 1;i >= 0; i--)
+	for (int i = max - 1; i >= 0; i--)
 	{
 		if(count % 2 == 1)
 		{
@@ -59,7 +52,7 @@ int main()
 		}	
 		else
 		{
-			c[i] = (b[i] - a[i] );
+			c[i] = (b[i] - a[i]);
 			if(c[i] < 0)
 			{
 				c[i] += 10;
