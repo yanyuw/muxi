@@ -3,32 +3,27 @@
 int main()
 {
 	char pw[20],userpw[50];
-	char tmp = '0';
+	char tmp[50];
 	int n,i,len1,len2,max,count = 0;
-	
 	scanf("%s%d",pw,&n);
-	while(tmp != '#')
+	// printf("pw=%s n=%d",pw,n);
+	fgets(tmp,50,stdin);
+	while(1)
 	{
-		scanf("%s",userpw);
-		
+		fgets(userpw,50,stdin);
+		// printf("%s",userpw);
+
 		len1 = strlen(pw);
 		len2 = strlen(userpw);
-		
-		if(len1 > len2)
-			max = len1;
-		else
-			max = len2;
-		
-		for (i = 0; i < max; i++)
-		{
-			if(pw[i] != userpw[i])
-				break;
-		}
-		
-		if(i == max)
+		if(len2 == 2 && userpw[0] == '#')
+			break;
+		if (userpw[len2-1] == '\n')
+			userpw[len2-1] = '\0'; 
+			
+		if(strcmp(userpw,pw) == 0)
 		{
 			printf("Welcome in"); 
-			return 0;
+			break;
 		}
 		else
 		{
@@ -38,10 +33,9 @@ int main()
 		
 		if(count >= n)
 		{
-			tmp = '#';
 			printf("Account locked\n");
-		} 
-			
+			break;
+		}
 	}
 	return 0;
 }
