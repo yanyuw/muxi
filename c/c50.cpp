@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int m,n,tol,count = 0,x,y;
-long long color[1000][1000] = {0};
+long long color[1002][1002] = {0};
 
 int isunique(int a, int b)
 {
@@ -74,11 +74,15 @@ int main()
     {
         for(int j = 1; j <= m; j++)
         {
-            if(isunique(i,j) && check(i,j))
+            if(check(i,j))
             {
-                count++;
-                x = j;
-                y = i;
+                if(isunique(i,j))
+                {
+                    count++;
+                    x = j;
+                    y = i;                    
+                } 
+
             }
         }
     }
