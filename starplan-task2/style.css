@@ -1,0 +1,88 @@
+
+body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, white, lightblue);
+  display: flex;
+  align-items: center;
+}
+
+.button{
+  width:130px;
+  height:130px;
+  border-radius: 50%;
+  position:relative;
+  margin: 0 auto;
+  border: solid 2px white;
+  cursor: pointer;
+}
+  
+.button a{
+  color: white;
+  text-decoration: none;
+  text-align:center;
+  font-size: 20px;
+  position:absolute;
+  top:40%;
+  left:10%
+}
+  
+.button:before {
+  display: block;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  content: '';
+}
+.button:hover{
+  border: solid 2px lightblue;
+  background-color: white;
+}
+.button:hover:before{
+  border: dashed 3px lightblue;
+  animation: whirl 9s linear infinite;
+}
+.button:hover a{
+  /*对背景进行渐变操作：linear表示线性渐变，
+    left top，right top指的是渐变方向，左上到右上
+    color-stop函数，第一个表示渐变的位置，0为起点，1为结束点；第二个表示该点的颜色*/
+  background: -webkit-gradient(linear, left top, right top, 
+    color-stop(0, lightblue), 
+    color-stop(.4, lightblue),
+    color-stop(.5, white), 
+    color-stop(.6, lightblue), 
+    color-stop(1, lightblue));
+  /* 把背景除了文字外的部分都裁剪掉，并将字体颜色设为transparent透明 */
+  -webkit-background-clip: text;
+  background-clip:text;
+  color:transparent;
+  /* 每隔2秒调用动画 infinite表明这个动画循环进行 */
+  -webkit-animation: text 2s infinite;
+  animation: text 2s infinite;
+  /* text-transform: uppercase; */
+}
+
+.button:hover .shift{
+  color: grey;
+  /* font-size: 25px; */
+}
+
+/* 设定这个动画 将背景从-100px的水平位置，移动到+100px的水平位置*/
+@keyframes text {
+  from {
+    background-position: -100px;}
+  to {
+    background-position: 100x;} 
+}
+@keyframes whirl{
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+    
