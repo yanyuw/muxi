@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Task 3</title>
+  <style>
+      body {
+          background: grey;
+      }
+      div {
+          display: inline-block;
+      }
+      .outside {
+          border: 1px solid white;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          display: inline-block;
+          position: relative;
+          vertical-align: middle;
+      }
+      .inside {
+          background-color: white;
+          border-radius: 50%;
+          width: 80px;
+          height: 80px;
+          position: absolute;
+          top: 10px;
+          left: 10px;
+      }
+      .text {
+          width: 100px;
+          text-align: center;
+      }
+  </style>
+</head>
+<body>
+    <div class="father">
+        <div class="outside">
+            <div class="inside"></div>
+        </div>
+        <div class="text">ABC123</div>
+    </div>
+</body>
+</html>
